@@ -26,9 +26,8 @@ $("#creditos").click(function(){
     
     function tutorial(){
         $("#fund-alert").show();
-		$("#alertz").slideDown();
 		$("#alertz").html("<h1>Tutorial</h1><br><p>Para jogar, simplesmente digite as letras que você acha que a palavra ou a frase possui, se você perder todas as vidas, você irá automaticamente para a próxima palavra</p><br><br><p id='sair_tela'>>Sair</p>");
-		
+		$("#alertz").slideDown();
     }
     
 $(document).on("click","#sair_tela",function(){
@@ -41,23 +40,22 @@ $(document).on("click","#sair_tela",function(){
     
     
     
-//Créditos
+//Credits
     
      function creditos(){
-        $("#alertz").css("height","55vh");
+		$("#alertz").html('<h1>Credits</h1> <h2>Desenvolvimento:</h2> <p>Pedro Fernando de Mattos Baptista</p> <h2>Sound Effects:</h2> <p>Super Mario World by Nintendo</p> <h2>Contact me:</h2> <p>Email: <span><a href="mailto:pedrofmattosb@gmail.com">pedrofmattosb@gmail.com</a></span></p> <p><a target="_blank" href="https://www.linkedin.com/in/pedro-fernando-mattos-baptista-259645137/">>Linkedin</a></p> <p><a target="_blank" href="https://www.facebook.com/pedrofernando.mattosbaptista">>Facebook</a></p> <p><a target="_blank" href="https://twitter.com/PedroBa32383973">>Twitter</a></p> <p><a target="_blank" href="https://www.instagram.com/mattosbaptista/">>Instagram</a></p> <p id="sair_tela">>Exit</p>');
         $("#fund-alert").show();
-		$("#alertz").slideDown();
-		$("#alertz").html('<h1>Créditos</h1> <h2>Desenvolvimento:</h2> <p>Pedro Fernando de Mattos Baptista</p> <h2>Efeitos sonoros:</h2> <p>Super Mario World by Nintendo</p> <h2>Contato:</h2> <p>Email: <span><a href="mailto:pedrofmattosb@gmail.com">pedrofmattosb@gmail.com</a></span></p> <p><a target="_blank" href="https://www.linkedin.com/in/pedro-fernando-mattos-baptista-259645137/">>Linkedin</a></p> <p><a target="_blank" href="https://www.facebook.com/pedrofernando.mattosbaptista">>Facebook</a></p> <p><a target="_blank" href="https://twitter.com/PedroBa32383973">>Twitter</a></p> <p><a target="_blank" href="https://www.instagram.com/mattosbaptista/">>Instagram</a></p> <p id="sair_tela">>Sair</p>');
-		
+		$("#alertz").slideDown(300);
     }  
-//Configurações iniciais
+//Inicial Configs
 var palavras = 
 [
-{"palavra":"cenoura","tema":"Um legume"},
-{"palavra":"abacate","tema":"Uma fruta"},
-{"palavra":"copa do mundo","tema":"Um evento internacional"},
-{"palavra":"fracasso","tema":"Uma palavra que descreve a carreira do pedro"}
+{"palavra":"carrot","tema":"A vegetable"},
+{"palavra":"abacate","tema":"a Fruit"},
+{"palavra":"world cup","tema":"An international Event"},
+{"palavra":"jquery","tema":"Tecnology used to create this project"}
 ];
+
 var hhh = 1;
 var hj = -1;
 var l = 0;
@@ -133,6 +131,7 @@ $("body").keypress(function tentar(event){
 	  }
 	  z++;
 	}
+	//Takes out one life point if the player make a mistake
 	// Retira uma vida caso o jogador cometa um erro
 	if(y == 0){
 	  vidas--;
@@ -143,21 +142,21 @@ $("body").keypress(function tentar(event){
 	  localStorage.setItem("uso", 1);
 	  localStorage.setItem("u_erro", x);
 	}
+	//If the player does not have any lifes left the game is over
 	// Caso o Jogador não tenha mais vidas ele perde o jogo
 	if(vidas == 0){
 	  derrota();
 	  return false;
 	}
 	// Vitoria do jogador
+	// Player Wins
 	if(acertos == fff){
 	  vitoria();
 	  return false;
 	}
 });
-    //Celulares
 
-    
-    
+//Functions
 function derrota(){
 	    sommorte();
 		$("#fund-alert").show();
@@ -175,7 +174,7 @@ function vitoria(){
 		somvitoria();
 		$("#fund-alert").show();
 		$("#alertz").slideDown();
-		$("#alertz").text("Parabéns! Você conseguiu!");
+		$("#alertz").text("You Win!");
 		setTimeout(function(){
 		$("#alertz").slideUp(1000);
 		}, 2000);
@@ -189,7 +188,7 @@ function fimdejogo(){
 		$("#tema").text("Fim de jogo");
 		$("#fund-alert").show();
 		$("#alertz").slideDown();
-		$("#alertz").text("Muito Obrigado por jogar!");
+		$("#alertz").text("Thanks for playing");
 		setTimeout(function(){
 		$("#alertz").slideUp(1000);
 		}, 1000);
@@ -211,6 +210,7 @@ function errox(){
 		}, 2000);
 }
     //Celulares
+	//Mobile functions
     
    $(".col-xs-1.tecla.sa, .col-xs-1.tecla.sb , .col-xs-1.tecla.sc").click(function(){
        
@@ -270,6 +270,7 @@ function errox(){
 });
 
 // Efeitos sonoros
+// Sound Effects
 function somacerto(){
 document.getElementById("acertinho").play();		
 }
