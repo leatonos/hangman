@@ -97,7 +97,7 @@ html,body{
     top:20%;
     left:30%;
     width:40%;
-    height:30%;
+    min-height:30%;
 	padding:20px 40px;
 	color:white;
 	font-family: pixels;
@@ -117,10 +117,6 @@ html,body{
   margin-right: auto;
   width: 100%;
   max-width: 600px;
-}
-
-#intro{
-     
 }
 
 #menu{
