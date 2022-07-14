@@ -9,13 +9,15 @@ $("#start").click(function(){
     novapalavra();
     
 });
-    
+   
+//Activate the tutorial
 $("#tutorial").click(function(){
     sommensagem();
 	tutorial();	
     
 });
     
+//Credits
 $("#creditos").click(function(){
    sommensagem();
    creditos();	
@@ -43,7 +45,7 @@ $(document).on("click","#sair_tela",function(){
 //Credits
     
      function creditos(){
-		$("#alertz").html('<h1>Credits</h1> <h2>Desenvolvimento:</h2> <p>Pedro Fernando de Mattos Baptista</p> <h2>Sound Effects:</h2> <p>Super Mario World by Nintendo</p> <h2>Contact me:</h2> <p>Email: <span><a href="mailto:pedrofmattosb@gmail.com">pedrofmattosb@gmail.com</a></span></p> <p><a target="_blank" href="https://www.linkedin.com/in/pedro-fernando-mattos-baptista-259645137/">>Linkedin</a></p> <p><a target="_blank" href="https://www.facebook.com/pedrofernando.mattosbaptista">>Facebook</a></p> <p><a target="_blank" href="https://twitter.com/PedroBa32383973">>Twitter</a></p> <p><a target="_blank" href="https://www.instagram.com/mattosbaptista/">>Instagram</a></p> <p id="sair_tela">>Exit</p>');
+		$("#alertz").html('<h1>Credits</h1><h2>Development:</h2><p>Pedro Fernando de Mattos Baptista</p><h2>Sound Effects:</h2><p>Super Mario World by Nintendo</p><h2>Contact:</h2><p>Email: <span><a href="mailto:pedrofmattosb@gmail.com">pedrofmattosb@gmail.com</a></span></p><p><a target="_blank" href="https://www.linkedin.com/in/pedro-fernando-mattos-baptista-259645137/">>Linkedin</a></p><p><a target="_blank" href="https://www.facebook.com/pedrofernando.mattosbaptista">>Facebook</a></p><p><a target="_blank" href="https://twitter.com/PedroBa32383973">>Twitter</a></p><p><a target="_blank" href="https://www.instagram.com/mattosbaptista/">>Instagram</a></p><p id="sair_tela">>Exit</p>');
         $("#fund-alert").show();
 		$("#alertz").slideDown(300);
     }  
@@ -66,7 +68,7 @@ var tentativas = [];
 var fff = 0;
 localStorage.setItem("uso",0)
 
-
+//Writes a new word in the game
 function novapalavra(){
 	fff = palavras[l].palavra.length;
 	while(a < palavras[l].palavra.length){
@@ -83,6 +85,7 @@ function novapalavra(){
 	$("tema").animate({height: '120px'});
 }
 
+//Cleans the word
 function limpar(){
 	    l++;
 	    hhh = 1;
@@ -101,11 +104,13 @@ function limpar(){
 	    }else{novapalavra();}
 }
 
+//Event listener for the keys you press
 $("body").keypress(function tentar(event){
 	var z = 0;
 	var y = 0;
 	var x = event.key;
 	
+	//Verifys if the letter you choose was already picked
 	// Verifica se a letra ja foi colocada antes
 	if(tentativas.indexOf(x) != -1){
 		$("#fund-alert").show();
@@ -120,6 +125,7 @@ $("body").keypress(function tentar(event){
 		}, 2000);
 		return false;
 	}
+	//Checks if the letter exists in the word
 	// Verifica se a letra existe na palavra
     while( z <= palavras[l].palavra.length ){
 	  if( palavras[l].palavra[z] == x ){
@@ -295,6 +301,7 @@ document.getElementById("fun").play();
 
 
 /*
+	//Adm comands that we did not use for the regular player
     //Comandos de ADM
 	if(x == 1){
 		//Reiniciar Jogo
